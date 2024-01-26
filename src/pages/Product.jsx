@@ -18,14 +18,41 @@ export default function Product(){
             desc={item.description} 
             price={item.price} 
             title={item.title}
+            rating={item.rating}
+            discount={item.discountPercentage}
+            category={item.category}
         />
     )
     
     return(
+    
         <div className="product-section">
             <div className="sidebar">
-                <h1>Apply Filter</h1>
-
+                <div class="filter-heading">Filters</div>
+                <ul class="filter-options">
+                    <li>
+                        <label>
+                            <input type="checkbox" /> Smartphones
+                        </label>
+                        </li>
+                        <li>
+                        <label>
+                            <input type="checkbox" /> Laptops
+                        </label>
+                        <label>
+                            <input type="checkbox" /> Fragrances
+                        </label>
+                        <label>
+                            <input type="checkbox" /> home-decoration
+                        </label>
+                        <label>
+                            <input type="checkbox" /> groceries
+                        </label>
+                        <label>
+                            <input type="checkbox" /> skincare
+                        </label>
+                    </li>
+                </ul>
             </div>
             <div className="display-product">
                 {
