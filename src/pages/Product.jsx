@@ -8,12 +8,12 @@ export default function Product(){
             .then(res => res.json())
             .then(data => setItems(data.products))
     }, [])
-    console.log(items)
     
 
     const displayItems=items.map(item => 
         <Card 
             key={item.id}
+            id={item.id}
             image={item.thumbnail} 
             desc={item.description} 
             price={item.price} 
@@ -26,10 +26,11 @@ export default function Product(){
     
     return(
     
+        
         <div className="product-section">
             <div className="sidebar">
-                <div class="filter-heading">Filters</div>
-                <ul class="filter-options">
+                <div className="filter-heading">Filters</div>
+                <ul className="filter-options">
                     <li>
                         <label>
                             <input type="checkbox" /> Smartphones
