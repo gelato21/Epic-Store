@@ -43,28 +43,19 @@
   cursor: pointer;
   margin-left: 10px;
 }
-/* .badge{
-  font-size:12px;
-  color: #fff;
-  background: red;
-  border-radius:50%;
-  padding: 0 5px;
-  position:relative;
-  left:-8px;
-  top:-11px;
-  opacity:0.9;
-} */
+
 .button__badge {
   background-color: #fa3e3e;
   border-radius: 9px;
   color: white;
- 
   padding: 1px 3px;
   font-size: 12px;
-  
-  position: absolute; /* Position the badge within the relatively positioned button */
-  top: 10px;
-  right: 50px;
+  position: absolute;
+  top: 11px;
+  right: 65px;
+}
+.icon{
+  margin-right: 5px;
 }
 
 /* ---------------------------Home page CSS---------------------------- */
@@ -121,7 +112,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 8px; 
   overflow: hidden;
   transition: transform 0.2s;
   max-width: 245px;
@@ -135,7 +126,7 @@
   transform: scale(1.05);
 }
 .product-card:hover h1{
-  color: blue;
+  color: #2874F0;
 }
 
 .product-image {
@@ -161,6 +152,7 @@
 
 .card-btn{
   text-align: center;
+  margin-bottom: 20px;
   
 }
 
@@ -175,8 +167,10 @@
 .display-product{
   display: grid;
   margin: 20px;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 0px;
 } 
+
 
 
 /* ------------------item detail CSS------------------------- */
@@ -246,11 +240,16 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 .item-short-img > img{
   cursor: pointer;
   height: 40px;
   border: 1px rgb(211, 205, 205) solid;
+}
+.item-short-img > img:hover{
+  border: 2px #2874F0 solid;
+  transform: scale(1.05);
 }
 
 .item-btns{

@@ -28,7 +28,7 @@ export default function Product(){
     return(
         <div className="display-product">
             {
-            displayItems
+                displayItems
             }
         </div>
     )

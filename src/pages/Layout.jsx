@@ -35,14 +35,16 @@ export default function Layout(){
                         >
                             Product
                         </NavLink>
-                        <span className="nav-cart">
+                        <NavLink  
+                            to="cart"
+                            className="nav-cart">
                             <FontAwesomeIcon 
                                 icon={faCartShopping} 
-                                className=""
+                                className="icon"
                             />
-                            <span class="button__badge">{cartValue}</span>
+                            { cartValue!=0 && <span class="button__badge">{cartValue}</span>}
                             Cart
-                        </span>
+                        </NavLink>
                     </div>
                 </nav>
                 <Outlet context={[cartValue, setCartValue]} />
