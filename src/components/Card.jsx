@@ -1,24 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBoltLightning } from "@fortawesome/free-solid-svg-icons";
 
 export default function Card(props){
-    const rating=(props.rating/5)*100
+    const indianRupee=props.price*83
 
     return(
         <div className="product">
             <Link to={`/product/${props.id}`}>
                 <div className="product-card">
-                <img src={props.image} alt="Product Image" className="product-image" />
-                <div className="rating-bar">
-                    <div className="rating-fill" style={{width:rating+'%'}}></div>
-                </div>
-                <div className="product-title">{props.title}</div>
+                <img 
+                    src={props.image} 
+                    alt="Product Image" 
+                    className="product-image" 
+                />
+                <h1 className="product-title">{props.title}</h1>
+                <span className="item-rating">{props.rating.toFixed(1)}★</span>
+                <span className="item-reviews">1,494 Ratings & 138 Reviews</span>
+                    <div className="item-pricing-detail">
+                        <span className="item-price">₹{indianRupee.toLocaleString()}</span>
+                        <span 
+                            className="item-cut-price"
+                        >
+                            <del>₹{(indianRupee+1000).toLocaleString()}</del>
+                        </span>
+                        <span 
+                            className="item-discount"
+                        >
+                            {props.discount.toFixed(0)}% off
+                        </span>
+                    </div>
                 <div className="product-category">{props.category}</div>
-                <div className="price-container">
-                    <div className="product-price">₹19.99</div>
-                    <div className="discount-label">-{props.discount}% off</div>
+                <div className="item-buy-now item-btn card-btn">
+                    <FontAwesomeIcon 
+                        icon={faBoltLightning} 
+                        className="btn-icon"
+                    />
+                        BUY NOW
                 </div>
-                <button className="buy-button">Buy Now</button>
                 </div>
             </Link>
         </div>

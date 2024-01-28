@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { faCartShopping, faBoltLightning } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function ItemDetails(){
+export default function ItemDetails(props){
     const [product, setProduct]=useState(null)
     const [showImage, setShowImage]=useState(null)
     const params=useParams()
@@ -31,7 +33,7 @@ export default function ItemDetails(){
     const indianRupee=product.price*83
 
     return(
-        <div className="item-container">
+        // <div className="item-container">
             <div className="item">
                 <div className="item-images">
                     <img src={showImage} alt="Product Image 1" />
@@ -61,13 +63,27 @@ export default function ItemDetails(){
                         {allImages}
                     </div>
                     <div className="item-btns">
-                        <div className="item-add-cart item-btn">ADD TO CART</div>
-                        <div className="item-buy-now item-btn">BUY NOW</div>
+                        <div 
+                            className="item-add-cart item-btn"
+                            onClick={() => props.handleCard()}
+                        >
+                            <FontAwesomeIcon 
+                                icon={faCartShopping}
+                                className="btn-icon"
+                            /> 
+                                ADD TO CART
+                        </div>
+                        <div className="item-buy-now item-btn">
+                            <FontAwesomeIcon 
+                                icon={faBoltLightning} 
+                                className="btn-icon"
+                            />
+                                BUY NOW
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
+        // </div>
         
 
     )

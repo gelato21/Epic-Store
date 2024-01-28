@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 
+
 export default function Product(){
     const [items, setItems] = useState([])
     useEffect(() => {
@@ -25,41 +26,10 @@ export default function Product(){
     )
     
     return(
-    
-        
-        <div className="product-section">
-            <div className="sidebar">
-                <div className="filter-heading">Filters</div>
-                <ul className="filter-options">
-                    <li>
-                        <label>
-                            <input type="checkbox" /> Smartphones
-                        </label>
-                        </li>
-                        <li>
-                        <label>
-                            <input type="checkbox" /> Laptops
-                        </label>
-                        <label>
-                            <input type="checkbox" /> Fragrances
-                        </label>
-                        <label>
-                            <input type="checkbox" /> home-decoration
-                        </label>
-                        <label>
-                            <input type="checkbox" /> groceries
-                        </label>
-                        <label>
-                            <input type="checkbox" /> skincare
-                        </label>
-                    </li>
-                </ul>
-            </div>
-            <div className="display-product">
-                {
-                displayItems
-                }
-            </div>
+        <div className="display-product">
+            {
+            displayItems
+            }
         </div>
     )
 }

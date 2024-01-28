@@ -1,53 +1,73 @@
 *{
-  font-family: 'Montserrat', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
 
 /* --------------------NavBar CSS----------------------------------------- */
-.nav-container{
-  
+
+
+.nav-container{ 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #D9CFD3;
+  background-color: white;
 }
 .navBar{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  height: 35px;
-  background-color: white;
+  height: 20px;
+  background-color: #2874F0;
+  color: white;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.075);
 
 }
+.nav-logo{
+  font-weight: 700;
+}
 .nav-links > a{
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 15px;
-  font-size: .9rem;
-  color: #19A596;
-}
-.nav-links > a:hover{
-  color: #7FD1C7;
-  text-decoration: underline;
+  font-size: 15px;
+  font-weight: 700;
+  
 }
 .nav-cart{
-  background-color: #970E3D;
-  display: inline-block;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 25px;
-  padding-right: 25px;
   color: white;
-  border-radius: 3px;
-  font-size: 10px;
-  font-weight: bold;
+  /* padding: 15px; */
+  /* font-size: 15px; */
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 10px;
+}
+/* .badge{
+  font-size:12px;
+  color: #fff;
+  background: red;
+  border-radius:50%;
+  padding: 0 5px;
+  position:relative;
+  left:-8px;
+  top:-11px;
+  opacity:0.9;
+} */
+.button__badge {
+  background-color: #fa3e3e;
+  border-radius: 9px;
+  color: white;
+ 
+  padding: 1px 3px;
+  font-size: 12px;
+  
+  position: absolute; /* Position the badge within the relatively positioned button */
+  top: 10px;
+  right: 50px;
 }
 
 /* ---------------------------Home page CSS---------------------------- */
-
 
 
 .home{
@@ -104,7 +124,7 @@
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s;
-  max-width: 200px;
+  max-width: 245px;
   width: 100%;
 }
 .product > a{
@@ -113,6 +133,9 @@
 
 .product-card:hover {
   transform: scale(1.05);
+}
+.product-card:hover h1{
+  color: blue;
 }
 
 .product-image {
@@ -127,7 +150,8 @@
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 4px;
-  color: #333;
+  color: black;
+  
 }
 .product-category {
   font-size: 12px;
@@ -135,110 +159,28 @@
   margin-bottom: 4px;
 }
 
-.price-container {
-  display: flex;
-  align-items: baseline; 
+.card-btn{
+  text-align: center;
+  
 }
 
-.product-price {
-  font-size: 12px;
-  font-weight: bold;
-  color: #e44d26;
-  margin-bottom: 6px;
-}
+.card-btn:hover {
 
-.discount-label {
-  font-size: 12px;
-  color: #27ae60;
-  margin-bottom: 6px;
-  margin-left: 10px;
-  font-weight: bold;
-}
-
-.buy-button {
-  background-color: #e44d26;
-  color: #fff;
-  padding: 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-  margin-top: 6px; 
-}
-
-.buy-button:hover {
-  background-color: #333;
-}
-.rating-bar {
-  height: 5px;
-  background-color: #3498db;
-  margin-bottom: 6px;
-}
-
-.rating-fill {
-  height: 100%;
-  background-color: #f39c12;
-}
-
-/* -----------------------------Side bar CSS----------------------------- */
-
-.sidebar {
-  width: 150px;
-  height: 500px;
-  background-color: #fff;
-  color: #333;
-  margin: 10px;
-  padding: 20px;
-}
-
-.filter-heading {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  border-bottom: 1px rgb(79, 76, 76) solid;
-}
-
-.filter-options {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.filter-options li {
-  margin-bottom: 8px;
-}
-
-.filter-options label {
-  display: block;
-  margin-bottom: 4px;
-}
-
-.filter-options input {
-  margin-right: 4px;
+  background-color: black;
 }
 
 
 /* ---------------------display product CSS ----------------------------*/
 
 .display-product{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   display: grid;
+  margin: 20px;
   grid-template-columns: repeat(4, auto);
 } 
 
 
-.product-section{
-  display: flex;
-}
-
-
 /* ------------------item detail CSS------------------------- */
-.item-container{
-  
-}
+
 .item{
   display: flex;
   padding: 50px;
@@ -269,11 +211,12 @@
 
 .item-pricing-detail{
   margin-top: 10px;
-
+  
 }
 
 .item-price{
   font-weight: bolder;
+  color: black;
   font-size: 25px;
 }
 .item-cut-price{
@@ -324,10 +267,13 @@
   
 }
 .item-add-cart{
+  gap: 3px;
   background-color: #FF9F00;
 }
 .item-buy-now{
   background-color: #FB641B;
 }
-
+.btn-icon{
+  margin-right: 10px;
+}
 

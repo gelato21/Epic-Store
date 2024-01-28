@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-
 import { NavLink } from "react-router-dom";
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Layout(){
+    const [cartValue, setCartValue]=useState(0);
     const activeStyles={
-        color: "#2B8379", 
+        color: "blue", 
         fontWeight:"bold",
         textDecoration:"underline"
     }
@@ -17,26 +19,33 @@ export default function Layout(){
                     <div className="nav-links">
                         <NavLink 
                             to="."
-                            style={({isActive}) => isActive ? activeStyles: null}
+                            // style={({isActive}) => isActive ? activeStyles: null}
                         >
                             Home
                         </NavLink>
                         <NavLink 
                             to="about"
-                            style={({isActive}) => isActive ? activeStyles: null}
+                            // style={({isActive}) => isActive ? activeStyles: null}
                         >
                             About us
                         </NavLink>
                         <NavLink 
                             to="product"
-                            style={({isActive}) => isActive ? activeStyles: null}
+                            // style={({isActive}) => isActive ? activeStyles: null}
                         >
                             Product
                         </NavLink>
-                        <div className="nav-cart">Cart(8)</div>
+                        <span className="nav-cart">
+                            <FontAwesomeIcon 
+                                icon={faCartShopping} 
+                                className=""
+                            />
+                            <span class="button__badge">{cartValue}</span>
+                            Cart
+                        </span>
                     </div>
                 </nav>
-                <Outlet/>
+                <Outlet context={[cartValue, setCartValue]} />
             </div>
         </>
     )
