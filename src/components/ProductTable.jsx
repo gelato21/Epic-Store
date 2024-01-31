@@ -1,9 +1,12 @@
 
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { incrementQuantity, removeCartItem, decrementQuantity } from '../features/productSlice';
 
 function ProductTable({props}){
-    console.log(props)
+    const dispatch=useDispatch()
     const indianRupee=props.price*83
+   
   return (
     <div className='cart-wrap'>
         <div className='cart-item'>
@@ -32,10 +35,21 @@ function ProductTable({props}){
             </div>
         </div>
         <div className='cart-counter'>
-            <span className='cart-btn cart-minus'>-</span>
-            <span className='cart-counter-num'>7</span>
-            <span className='cart-btn cart-plus'>+</span>
-            <span className='cart-remove-btn'>REMOVE</span>
+            <span 
+                className='cart-btn cart-minus' 
+                onClick={() => dispatch(decrementQuantity(props.id))}
+            >-</span>
+            <span className='cart-counter-num'>{props.quantity}</span>
+            <span
+                className='cart-btn cart-plus'
+                onClick={() => dispatch(incrementQuantity(props.id))}
+            >+</span>
+            <span 
+                className='cart-remove-btn'
+                onClick={() => dispatch(removeCartItem(props.id))}
+            >
+                REMOVE
+            </span>
         </div>
     </div>
   )

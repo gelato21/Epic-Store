@@ -10,7 +10,7 @@ export default function EmptyCart(){
             <Link 
                 to="../product"
                 path="relative"
-                className="empty-link"
+                className="link-btn"
             
             >
                 <div className="empty-btn">Shop now</div>

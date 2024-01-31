@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { faCartShopping, faBoltLightning } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { nanoid } from "@reduxjs/toolkit";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { addCartItem } from "../features/productSlice";
 import { useDispatch } from "react-redux";
 
@@ -57,28 +57,27 @@ export default function ItemDetails(){
                 <div className="item-btns">
                     <div 
                         className="item-add-cart item-btn"
-                        onClick={
-                            () => dispatch(addCartItem(
-                                {
-                                    ...location.state,
-                                    quantity: 0
-                                }
-                            ))
-                        }
-                    >
+                        onClick={ () => dispatch(addCartItem({...location.state, quantity:1 })) }
+                        >
                         <FontAwesomeIcon 
                             icon={faCartShopping}
                             className="btn-icon"
-                        /> 
+                            /> 
                             ADD TO CART
                     </div>
-                    <div className="item-buy-now item-btn">
+                    <Link 
+                        className="item-buy-now item-btn link-btn" 
+                        to="../cart" 
+                        path="relative"
+                        onClick={ () => dispatch(addCartItem({...location.state, quantity:1 })) }
+                    >
                         <FontAwesomeIcon 
                             icon={faBoltLightning} 
                             className="btn-icon"
+
                         />
                             BUY NOW
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

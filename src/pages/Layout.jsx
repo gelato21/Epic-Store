@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useSelector } from "react-redux";
+import SearchBar from "../components/SearchBar";
 
 export default function Layout(){
-    const [cartValue, setCartValue]=useState(0);
+    const cartItems = useSelector(state => state.product.cartProduct)
     const activeStyles={
         color: "blue", 
         fontWeight:"bold",
@@ -15,7 +17,10 @@ export default function Layout(){
         <>
             <div className="nav-container">
                 <nav className="navBar">
-                    <h1 className="nav-logo">Epic Store</h1>
+                    <div className="search-and-logo">
+                        <h1 className="nav-logo">Epic Store</h1>
+                        <SearchBar/>
+                    </div>
                     <div className="nav-links">
                         <NavLink 
                             to="."
@@ -42,12 +47,12 @@ export default function Layout(){
                                 icon={faCartShopping} 
                                 className="icon"
                             />
-                            { cartValue!=0 && <span class="button__badge">{cartValue}</span>}
+                            { cartItems.length!=0 && <span className="button__badge">{cartItems.length}</span>}
                             Cart
                         </NavLink>
                     </div>
                 </nav>
-                <Outlet context={[cartValue, setCartValue]} />
+                <Outlet />
             </div>
         </>
     )

@@ -162,6 +162,10 @@
 .item-btn:hover{
   background-color: black;
 }
+.item-btn:active {
+  background-color:  #333;;
+  color: #fff; 
+}
 
 
 /* ---------------------display product CSS ----------------------------*/
@@ -273,6 +277,11 @@
 }
 .item-buy-now{
   background-color: #FB641B;
+  color: white;
+}
+.item-buy-now > a{
+  text-decoration: none;
+  color: white;
 }
 .btn-icon{
   margin-right: 10px;
@@ -427,12 +436,12 @@
   padding: 10px 60px;
   cursor: pointer;
 }
-.empty-link{
+.link-btn{
   text-decoration: none;
 }
 
 /* ------------------Loading Css-------------------------------- */
-/* Loading.css */
+
 .loading-container {
   display: flex;
   align-items: center;
@@ -452,4 +461,35 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* ----------------------SearchBar CSS---------------------------------- */
+.search-and-logo{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.search-container {
+  display: flex;
+  border: 1px solid #dbdbdb;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#search-input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+#search-button {
+  padding: 8px 30px;
+  background-color: white;
+  color: #2874F0;
+  border: none;
+  cursor: pointer;
 }
