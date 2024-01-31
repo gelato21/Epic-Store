@@ -4,7 +4,8 @@ const initialState={
     items: [],
     cartProduct: [],
     status:'idle',
-    error: null
+    error: null,
+    searchTerm: ''
 }
 
 export const fetchData = createAsyncThunk('data/fetchData', async () => {
@@ -33,10 +34,10 @@ export const productSlice = createSlice({
             })
         
             if(doesItemExist){
-               const newArr=[]
+               let newArr=[]
                state.cartProduct.forEach((item) => {
                     if(item.id === action.payload.id){
-                        newArr.push({...item, quantity: item.quantity+1})
+                        newArr.unshift({...item, quantity: item.quantity+1})
                     }
                     else newArr.push(item);
                })
@@ -46,7 +47,7 @@ export const productSlice = createSlice({
                state.cartProduct.push(...newArr)
             }
             else{
-                state.cartProduct.push(action.payload)
+                state.cartProduct.unshift(action.payload)
             }
         },
         incrementQuantity: (state, action) => {
@@ -83,6 +84,9 @@ export const productSlice = createSlice({
                 state.cartProduct.pop();
             }
             state.cartProduct.push(...newArr)
+        },
+        setSearchTerm: (state, action) => {
+            state.searchTerm=action.payload
         }
 
     },
@@ -108,7 +112,8 @@ export const {
     addCartItem, 
     incrementQuantity, 
     decrementQuantity,
-    removeCartItem
+    removeCartItem,
+    setSearchTerm
 } = productSlice.actions
 
 

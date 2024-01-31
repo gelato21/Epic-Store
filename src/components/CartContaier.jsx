@@ -1,11 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector} from "react-redux";
 import ProductTable from "./ProductTable";
 import EmptyCart from "./EmptyCart";
+
+
 export default function CartContainer(){
     const cartItems = useSelector(state => state.product.cartProduct)
-    if(!cartItems.length) return <EmptyCart/>
-    const items = cartItems?.map((item, index) =>
+    
+
+    if(!cartItems.length){
+        return <EmptyCart/>
+    }
+
+    const items = cartItems.map((item, index) =>
         <ProductTable  key={index} props={item} />
     )
     console.log(cartItems)
