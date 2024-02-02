@@ -10,6 +10,9 @@ import ProductDetail from './components/ProductDetail.jsx'
 import CartContainer from './components/CartContaier.jsx'
 import { Provider } from 'react-redux'
 import { store } from './app/store.js'
+import Login from './components/loginSignUpPage/Login/Login.jsx'
+import SignUp from './components/loginSignUpPage/SignUp/SignUp.jsx'
+import User from './components/User/User.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -18,6 +21,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route>
           <Route path="/" element={<Layout /> }>
             <Route index element={<Home />}/> 
+
+            <Route path='user' element={<User/>}/>
+            <Route path='login' element={<Login/>}/>
+            <Route path='signup' element={<SignUp/>}/>
             <Route path="about" element={<About />}/> 
             <Route path="product" element={<ProductLayout />}/> 
             <Route path="cart" element={<CartContainer/>}/>

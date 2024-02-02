@@ -52,7 +52,7 @@
   font-size: 12px;
   position: absolute;
   top: 11px;
-  right: 65px;
+  right: 110px;
 }
 .icon{
   margin-right: 5px;
@@ -332,9 +332,6 @@
   display: flex;
   font-size: 10px;
   width: 500px; 
-  /* border: red 1px solid; */
-  /* border: 2px green solid; */
-  
 }
 
 .cart-item:hover h1{

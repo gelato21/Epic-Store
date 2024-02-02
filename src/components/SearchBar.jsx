@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../features/productSlice';
 
-
-const SearchBar = () => {
+function SearchBar(){
     const dispatch = useDispatch();
-    function handleInputChange(e){
-        dispatch(setSearchTerm(e.target.value))
+    
+    function debounce(func, timeout){
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args) }, timeout);
+      };
     }
+
+    function handleSearch(query) {
+      dispatch(setSearchTerm(query))
+    }
+    
+    const debouncedHandleSearch = useCallback(debounce(handleSearch, 400), []);
 
   return (
     <div className="search-container">
@@ -17,7 +27,7 @@ const SearchBar = () => {
             type="text" 
             id="search-input" 
             placeholder="Search for products..." 
-            onChange={handleInputChange}
+            onChange={(e) => debouncedHandleSearch(e.target.value)}
         />
         <FontAwesomeIcon 
             id="search-button" 

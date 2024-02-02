@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector } from "react-redux";
 import SearchBar from "../components/SearchBar";
@@ -49,6 +49,11 @@ export default function Layout(){
                             />
                             { cartItems.length!=0 && <span className="button__badge">{cartItems.length}</span>}
                             Cart
+                        </NavLink>
+                        <NavLink
+                            to='user'
+                        >
+                            <FontAwesomeIcon icon={faUser} />
                         </NavLink>
                     </div>
                 </nav>
